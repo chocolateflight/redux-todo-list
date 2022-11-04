@@ -7,17 +7,11 @@ module.exports = {
       md: '768px',
       lg: '1024px',
     },
-    fontSize: {},
     fontFamily: {
-      sans: ['Open Sans'],
-    },
-    colors: {
-      blueDark: '#31C3BD',
+      sans: ['sans-serif'],
     },
     extend: {
-      gridTemplateColumns: {},
-      gridTemplateRows: {},
-      boxShadow: {},
+
     },
   },
   plugins: [],
