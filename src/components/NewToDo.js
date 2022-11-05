@@ -30,6 +30,7 @@ const NewToDo = () => {
         id='todo'
         name='todo'
         placeholder='Enter todo'
+        required
         ref={enteredToDoRef}
       />
       <button
