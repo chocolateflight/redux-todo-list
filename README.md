@@ -1,46 +1,106 @@
-# Getting Started with Create React App and Redux
+# Aeropress Timer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Hello, and welcome to this Redux Training Project in form of a very simple Todo List! The goal of this project was to gain initial experience with Redux and Local Storage. The design is kept very plain and simple, without much thought to the colours. Nevertheless, it is responsive and interactive. The reason for this is that this project should focus entirely on Redux and Local Storage.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Access the App](#access-the-app)
+- [Overview](#overview)
+  - [App Description](#app-description)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Access the App
+This app has been deployed on Netlify: [Aeropress Timer](https://chocolateflight-aeropress-timer.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+### App Description
+This is a very simple ToDo app. The app has the following functions: ToDos can be added via a free text input. ToDos can be completed by means of a checkbox. Completed to-dos can be displayed with a separate checkbox. All to-dos can be deleted by pressing a single button. If you open the app, it checks whether there is already data in the local storage. If this is the case, the data is transferred and the previously saved to-dos are displayed. If there is no data in the local storage yet, an empty array is created and a new local storage is created as soon as a new todo is created. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links
 
-### `npm run build`
+- Solution URL: [GitHub Repository](#)
+- Live Site URL: [Netlify](#)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ReactJS](https://reactjs.org/) - React framework
+- [Redux](https://redux.js.org/) - A State Container for JS apps
+- [Tailwind CSS](https://tailwindcss.com/)
+- HTML 5
+- VS Code
+- Mobile-first workflow
 
-### `npm run eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I learned how to use the Redux Store and how to store, retrieve and remove data from the Local Storage. I also learned more about Array Methods, like filter and map.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+todoSlice with Local Storage Functionality
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```js
+const initialState = {
+  todoItems: localStorage.getItem('todoList')
+    ? JSON.parse(localStorage.getItem('todoList'))
+    : [],
+  amount: 0,
+  showCompleted: false,
+};
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const todoSlice = createSlice({
+  name: 'todo',
+  initialState,
+  reducers: {
+    calculateTotalTodos: (state) => {
+      state.amount = state.todoItems.length;
+    },
+    clearTodos: (state) => {
+      state.todoItems = [];
+      localStorage.removeItem('todoList');
+    },
+    addTodo: (state, action) => {
+      state.todoItems.push(action.payload);
+      localStorage.setItem('todoList', JSON.stringify(state.todoItems));
+    },
+    setCompleted: (state, action) => {
+      const { id, completed } = action.payload;
+      const todo = state.todoItems.find((todo) => todo.id === id);
+      if (todo) {
+        todo.completed = completed;
+      }
+      localStorage.setItem('todoList', JSON.stringify(state.todoItems));
+    },
+    updateShowCompleted: (state, action) => {
+      state.showCompleted = action.payload;
+    },
+  },
+});
+```
 
-## Learn More
+Filtering Completed ToDos in ToDoList.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+<div className='space-y-3 mt-3'>
+  {showCompleted
+    ? todoItems
+        .filter((item) => item.completed)
+        .map((item) => <ToDo key={item.id} {...item} />)
+    : todoItems
+        .filter((item) => !item.completed)
+        .map((item) => <ToDo key={item.id} {...item} />)}
+</div>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Author
+
+- GitHub - [@chocolateflight](https://github.com/chocolateflight)
+
+---------
+
