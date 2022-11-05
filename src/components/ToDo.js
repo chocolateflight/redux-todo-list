@@ -1,6 +1,18 @@
+import { setCompleted } from '../features/todoSlice';
+import { useDispatch } from 'react-redux';
+
 const ToDo = ({ id, todo, completed }) => {
+  const dispatch = useDispatch();
+
+  const onClickHandler = () => {
+    dispatch(setCompleted({ id, completed: !completed }));
+  };
+
   return (
-    <div className='flex items-center justify-between todo h-[80px] bg-amber-100 w-full px-5 shadow-sm rounded-md'>
+    <div
+      className={`flex items-center justify-between todo h-[80px] ${
+        completed ? 'bg-emerald-100' : 'bg-amber-100'
+      } w-full px-5 shadow-sm rounded-md`}>
       <h4 className='italic text-lg'>{todo}</h4>
       <form className='h-full flex items-center'>
         <label className='mr-2 text-sm' htmlFor={id}>
@@ -13,7 +25,8 @@ const ToDo = ({ id, todo, completed }) => {
             type='checkbox'
             name={id}
             id={id}
-            checked
+            onClick={onClickHandler}
+            defaultChecked
           />
         ) : (
           <input
@@ -21,6 +34,7 @@ const ToDo = ({ id, todo, completed }) => {
             type='checkbox'
             name={id}
             id={id}
+            onClick={onClickHandler}
           />
         )}
       </form>
