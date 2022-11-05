@@ -1,4 +1,4 @@
-# Aeropress Timer
+# Redux ToDo App
 
 Hello, and welcome to this Redux Training Project in form of a very simple Todo List! The goal of this project was to gain initial experience with Redux and Local Storage. The design is kept very plain and simple, without much thought to the colours. Nevertheless, it is responsive and interactive. The reason for this is that this project should focus entirely on Redux and Local Storage.
 
