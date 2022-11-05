@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { todoItems } from '../items/todoItems';
 
 const initialState = {
-  todoItems: todoItems,
+  todoItems: [],
   amount: todoItems.length,
   showCompleted: false,
 };
@@ -17,8 +17,11 @@ const todoSlice = createSlice({
     clearTodos: (state) => {
       state.todoItems = [];
     },
+    addTodo: (state, action) => {
+      state.todoItems.push(action.payload);
+    }
   },
 });
 
-export const { calculateTotalTodos, clearTodos, showCompleted } = todoSlice.actions;
+export const { calculateTotalTodos, clearTodos, showCompleted, addTodo } = todoSlice.actions;
 export default todoSlice.reducer;

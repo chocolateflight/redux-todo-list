@@ -1,17 +1,8 @@
 import { useSelector } from 'react-redux';
-import { todoItems } from '../items/todoItems';
 import ToDo from './ToDo';
 
 const ToDoList = () => {
-  const { amount, showCompleted } = useSelector((store) => store.todo);
-
-  if (amount === 0) {
-    return (
-      <section className='w-full px-2 md:px-10'>
-        <h2 className='font-bold text-xl'>You currently have no active ToDos</h2>
-      </section>
-    );
-  }
+  const { todoItems, amount, showCompleted } = useSelector((store) => store.todo);
 
   return (
     <section className='w-full px-2 md:px-10'>
