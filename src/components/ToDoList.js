@@ -35,9 +35,6 @@ const ToDoList = () => {
           : todoItems
               .filter((item) => !item.completed)
               .map((item) => <ToDo key={item.id} {...item} />)}
-        {/* {todoItems.map((todo) => {
-          return <ToDo key={todo.id} {...todo} />;
-        })} */}
       </div>
     </section>
   );
