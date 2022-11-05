@@ -7,14 +7,14 @@ const ToDoList = () => {
 
   if (amount === 0) {
     return (
-      <section>
+      <section className='w-full px-2 md:px-10'>
         <h2 className='font-bold text-xl'>You currently have no active ToDos</h2>
       </section>
     );
   }
 
   return (
-    <section className='w-full px-2'>
+    <section className='w-full px-2 md:px-10'>
       <div className='title flex justify-between items-center'>
         <h2 className='font-bold text-xl'>ToDo List</h2>
         <form className='flex'>

@@ -1,6 +1,6 @@
 const NewToDo = () => {
   return (
-    <form className='flex flex-col justify-center items-start gap-y-2 w-full px-2 mb-5 border-b-4 border-sky-300 pb-5 border-dotted'>
+    <form className='flex flex-col justify-center items-start gap-y-2 w-full px-2 mb-5 border-b-4 border-sky-300 pb-5 border-dotted md:px-10'>
       <input
         className='w-full border-2 border-sky-300 p-1 rounded-md h-[50px]'
         type='text'

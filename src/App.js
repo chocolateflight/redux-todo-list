@@ -15,8 +15,8 @@ function App() {
   }, [todoItems]);
 
   return (
-    <div className='h-screen flex flex-col items-center '>
-      <div className='max-w-[400px] w-full flex flex-col items-center'>
+    <div className='h-screen flex flex-col items-center'>
+      <div className='max-w-[400px] w-full flex flex-col items-center md:max-w-[700px] md:shadow-lg md:h-full lg:max-w-[1000px]'>
         <Header />
         <NewToDo />
         <ToDoList />
