@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  todoItems: [],
+  todoItems: localStorage.getItem('todoList')
+    ? JSON.parse(localStorage.getItem('todoList'))
+    : [],
   amount: 0,
   showCompleted: false,
 };
@@ -15,9 +17,11 @@ const todoSlice = createSlice({
     },
     clearTodos: (state) => {
       state.todoItems = [];
+      localStorage.removeItem('todoList');
     },
     addTodo: (state, action) => {
       state.todoItems.push(action.payload);
+      localStorage.setItem('todoList', JSON.stringify(state.todoItems));
     },
     setCompleted: (state, action) => {
       const { id, completed } = action.payload;
@@ -25,6 +29,7 @@ const todoSlice = createSlice({
       if (todo) {
         todo.completed = completed;
       }
+      localStorage.setItem('todoList', JSON.stringify(state.todoItems));
     },
     updateShowCompleted: (state, action) => {
       state.showCompleted = action.payload;
