@@ -4,7 +4,7 @@ import { todoItems } from '../items/todoItems';
 const initialState = {
   todoItems: todoItems,
   amount: todoItems.length,
-  showCompleted: false
+  showCompleted: false,
 };
 
 const todoSlice = createSlice({
@@ -12,11 +12,11 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     calculateTotalTodos: (state) => {
-      state.amount = state.todoItems.length
+      state.amount = state.todoItems.length;
     },
     clearTodos: (state) => {
-      state.todoItems = []
-    }
+      state.todoItems = [];
+    },
   },
 });
 

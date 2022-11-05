@@ -10,9 +10,7 @@ module.exports = {
     fontFamily: {
       sans: ['sans-serif'],
     },
-    extend: {
-
-    },
+    extend: {},
   },
   plugins: [],
 };
