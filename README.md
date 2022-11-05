@@ -15,7 +15,7 @@ Hello, and welcome to this Redux Training Project in form of a very simple Todo 
 - [Author](#author)
 
 ## Access the App
-This app has been deployed on Netlify: [Aeropress Timer](https://chocolateflight-aeropress-timer.netlify.app/)
+This app has been deployed on Netlify: [Redux ToDo](https://chocolateflight-redux-todo.netlify.app/)
 
 ## Overview
 
@@ -24,8 +24,8 @@ This is a very simple ToDo app. The app has the following functions: ToDos can b
 
 ### Links
 
-- Solution URL: [GitHub Repository](#)
-- Live Site URL: [Netlify](#)
+- Solution URL: [GitHub Repository](https://github.com/chocolateflight/redux-todo-list)
+- Live Site URL: [Netlify](https://chocolateflight-redux-todo.netlify.app/)
 
 ## My process
 
@@ -104,3 +104,4 @@ Filtering Completed ToDos in ToDoList.js
 
 ---------
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/17dcb4f8-0672-4d2f-84ee-43390fed3ce9/deploy-status)](https://app.netlify.com/sites/chocolateflight-redux-todo/deploys)
