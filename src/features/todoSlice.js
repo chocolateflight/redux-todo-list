@@ -4,7 +4,9 @@ const initialState = {
   todoItems: localStorage.getItem('todoList')
     ? JSON.parse(localStorage.getItem('todoList'))
     : [],
-  amount: 0,
+  amount: localStorage.getItem('todoList')
+    ? JSON.parse(localStorage.getItem('todoList').length)
+    : 0, // Amount doesn't do anything just yet
   showCompleted: false,
 };
 
